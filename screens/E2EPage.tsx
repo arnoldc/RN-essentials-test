@@ -1,16 +1,15 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const QRCodeSuccessPage: React.FC = ({route}) => {
+const E2EPage: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Data:</Text>
-       <Text style={styles.text}>{route.params.key} </Text>
+       <Text style={styles.text}>Hello World </Text>
     </View>
   );
 };
 
-export default QRCodeSuccessPage;
+export default E2EPage;
 
 const styles = StyleSheet.create({
     container: {

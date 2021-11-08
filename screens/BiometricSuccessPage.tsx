@@ -25,7 +25,7 @@ const BiometricSuccessPage: React.FC = ({
 
   return (
     <View style={styles.container}>
-        <Text style={styles.text}> Generated key</Text> 
+        <Text style={styles.text}> Generated RSA PKCS SHA 256 signtaure</Text> 
         <Text style={styles.text}>{`${route.params.key}`} </Text>
         <TouchableOpacity
              style={styles.button}
