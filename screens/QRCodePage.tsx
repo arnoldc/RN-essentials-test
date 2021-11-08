@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, ToastAndroid, Modal } from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { BarCodeReadEvent } from 'react-native-camera';
@@ -8,7 +8,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 const QRCodePage: React.FC = () => {
   const navigation =useNavigation<NativeStackNavigationProp<any, any>>();
   const [showModal, setShowModal] = useState<boolean>(false)
-
+  const scannerRef = useRef();
   const validURL = (str: string): boolean  => {
     var regexp = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
     return regexp.test(str);
@@ -32,11 +32,15 @@ const QRCodePage: React.FC = () => {
   }
 
   const modal = ()  => (
-    <Modal isVisible={showModal} transparent={true} animationType="slide" onRequestClose={() => setShowModal(false)}>
+    <Modal isVisible={showModal} transparent={true} animationType="slide" onRequestClose={() => {
+      setShowModal(false);
+      scannerRef.current.reactivate();
+    }}>
       <View style={styles.modal}>
             <QRCodeScanner 
                   onRead={onReadQRCode}
                   fadeIn={false}
+                  ref={scannerRef}
             />
       </View>
 </Modal>
