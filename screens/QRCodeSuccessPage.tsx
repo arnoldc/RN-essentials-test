@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-
 const QRCodeSuccessPage: React.FC = ({route}) => {
   return (
     <View style={styles.container}>

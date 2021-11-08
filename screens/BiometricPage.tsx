@@ -82,16 +82,11 @@ const BiometricPage: React.FC = () => {
             )}
           </View>
         </TouchableOpacity>
-        <View style={styles.littleInfo}>
-                <Image source={require('../assets/check.png')} style={styles.miniImage}/>
-                <Text style={styles.text}>Supports biometrics</Text>
-      </View>
       </View>
     );
 };
 
 export default BiometricPage;
-
 
 const styles = StyleSheet.create({
     image: {
@@ -124,9 +119,5 @@ const styles = StyleSheet.create({
       height: 12,
       width: 12,
     },
-    littleInfo: {
-      flexDirection: 'row',
-      alignItems: 'center'
-    }
   });
   

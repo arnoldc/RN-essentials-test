@@ -24,25 +24,13 @@ const QRCodePage: React.FC = () => {
     <View style={styles.container}>
         <Text style={styles.heading}> QR Code scanner </Text>
         <TouchableOpacity style={styles.button}>
-                <Text style={styles.text}>Scan QR Code </Text>
+              <Text style={styles.text}>Scan QR Code </Text>
         </TouchableOpacity>
 
-    <QRCodeScanner
-        onRead={onReadQRCode}
-        flashMode={RNCamera.Constants.FlashMode.off}
-        topContent={
-          <Text style={styles.centerText}>
-            Go to{' '}
-            <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on
-            your computer and scan the QR code.
-          </Text>
-        }
-        bottomContent={
-          <TouchableOpacity style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>OK. Got it!</Text>
-          </TouchableOpacity>
-        }
-      />
+      <QRCodeScanner
+          onRead={onReadQRCode}
+          flashMode={RNCamera.Constants.FlashMode.off}
+        />
     </View>
   );
 };
